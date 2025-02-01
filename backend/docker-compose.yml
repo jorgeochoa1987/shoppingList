@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    ports:
+      - "8000:8000"  # Exposing Laravel's built-in server
+    depends_on:
+      - db
+    networks:
+      - laravel_network
+    command: php artisan serve --host=0.0.0.0 --port=8000
+
+  db:
+    image: postgres:15
+    container_name: laravel_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: podcast
+      POSTGRES_USER: podcast
+      POSTGRES_PASSWORD: podcast
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - laravel_network
+
+networks:
+  laravel_network:
+
+volumes:
+  pgdata:
