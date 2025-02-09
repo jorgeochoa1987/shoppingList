@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "name": "pan",
+      "quantity": "1",
+      "store": "jumbo",
+      "expirationDate": "2025-02-08",
+      "price": "2312321"
+    },
+    {
+      "name": "mojarra",
+      "quantity": "1",
+      "store": "alkosto",
+      "expirationDate": "2025-02-08",
+      "price": "2321321"
+    },
+    {
+      "name": "Pan Bimbo",
+      "quantity": "1",
+      "store": "Jumbo",
+      "expirationDate": "2025-02-08",
+      "price": "5000"
+    },
+    {
+      "name": "Mojarra",
+      "quantity": "6",
+      "store": "Jumbo",
+      "expirationDate": "2025-02-08",
+      "price": "46000"
+    }
+  ]
+}

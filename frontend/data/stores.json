@@ -1,0 +1,44 @@
+{
+  "stores": [
+    {
+      "name": "Jumbo",
+      "type": "Supermercado"
+    },
+    {
+      "name": "Éxito",
+      "type": "Supermercado"
+    },
+    {
+      "name": "D1",
+      "type": "Descuento"
+    },
+    {
+      "name": "Ara",
+      "type": "Descuento"
+    },
+    {
+      "name": "Olímpica",
+      "type": "Supermercado"
+    },
+    {
+      "name": "Alkosto",
+      "type": "Hipermercado"
+    },
+    {
+      "name": "Carulla",
+      "type": "Supermercado"
+    },
+    {
+      "name": "Metro",
+      "type": "Supermercado"
+    },
+    {
+      "name": "Justo & Bueno",
+      "type": "Descuento"
+    },
+    {
+      "name": "Price Smart",
+      "type": "Mayorista"
+    }
+  ]
+} 
