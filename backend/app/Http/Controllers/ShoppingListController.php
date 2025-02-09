@@ -15,10 +15,15 @@ class ShoppingListController extends Controller
 
     // Create a new list (no user association)
     public function store(Request $request)
-    {
-        $validated = $request->validate(['name' => 'required|string']);
-        $list = ShoppingList::create($validated);
-        return new ShoppingListResource($list);
+    {   
+        $validated = $request->validate(['name' => 'required|string','user_id'=>'required|integer']);
+        
+        try {
+            $list = ShoppingList::create($validated);
+            return new ShoppingListResource($list);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to create list', 'message' => $e->getMessage()], 500);
+        }
     }
 
     // Get single list
