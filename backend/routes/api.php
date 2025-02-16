@@ -9,6 +9,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 });
 
+ob_clean();
 
 Route::apiResource('shopping-lists', ShoppingListController::class);
 
