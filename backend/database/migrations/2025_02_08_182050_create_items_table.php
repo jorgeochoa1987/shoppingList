@@ -9,14 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('malls', function (Blueprint $table) {
+    public function up() {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->text("description");
-            $table->double("latitude");
-            $table->double("longitude");
+            $table->foreignId('shopping_list_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('malls');
+        Schema::dropIfExists('items');
     }
 };
