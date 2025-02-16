@@ -39,6 +39,10 @@
     {
       "name": "Price Smart",
       "type": "Mayorista"
+    },
+    {
+      "name": "80.000",
+      "type": "Otro"
     }
   ]
-} 
+}

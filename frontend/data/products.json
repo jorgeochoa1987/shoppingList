@@ -1,32 +1,18 @@
 {
   "items": [
     {
-      "name": "pan",
+      "name": "Perlas dawny ",
       "quantity": "1",
-      "store": "jumbo",
+      "store": "Price Smart",
       "expirationDate": "2025-02-08",
-      "price": "2312321"
+      "price": "85.000"
     },
     {
-      "name": "mojarra",
+      "name": "Cápsulas tide",
       "quantity": "1",
-      "store": "alkosto",
+      "store": "Price Smart",
       "expirationDate": "2025-02-08",
-      "price": "2321321"
-    },
-    {
-      "name": "Pan Bimbo",
-      "quantity": "1",
-      "store": "Jumbo",
-      "expirationDate": "2025-02-08",
-      "price": "5000"
-    },
-    {
-      "name": "Mojarra",
-      "quantity": "6",
-      "store": "Jumbo",
-      "expirationDate": "2025-02-08",
-      "price": "46000"
+      "price": "140.000"
     }
   ]
 }
