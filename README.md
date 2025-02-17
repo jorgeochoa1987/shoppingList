@@ -2,6 +2,11 @@
 
 Una aplicación de lista de compras desarrollada como proyecto educativo para la comunidad que quiere aprender a programar desde nivel 0.
 
+## 👨‍💻 Autores
+
+- [Jorge Ochoa](https://github.com/jorgeochoa1987) - Full-stack developer especializado en WordPress, Drupal, React, y desarrollo front-end y back-end
+- [Harold Ochoa](https://github.com/Harold2828) - Full Stack Developer con especialización en Machine Learning y AI
+
 ## 🚀 Tecnologías
 
 ### Frontend
@@ -80,4 +85,4 @@ Para no perderte ningún stream y estar al tanto de las actualizaciones:
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
 
 ---
-⌨️ con ❤️ por [Jorge Ochoa](https://github.com/tu-usuario) 😊
+⌨️ con ❤️ por [Jorge Ochoa](https://github.com/jorgeochoa1987) y [Harold Ochoa](https://github.com/Harold2828) 😊
