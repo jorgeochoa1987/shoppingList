@@ -72,7 +72,6 @@ Para no perderte ningún stream y estar al tanto de las actualizaciones:
 
 ## 👥 Comunidad
 
-- **Discord:** [Únete a nuestro servidor](link-discord)
 - **YouTube:** [@8aDev](https://www.youtube.com/@8aDev)
 - **Twitch:** [soy_jorge_8a](https://www.twitch.tv/soy_jorge_8a)
 
