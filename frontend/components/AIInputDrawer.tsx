@@ -10,17 +10,16 @@ interface Props {
   open: boolean;
   onClose: () => void;
   onOpen: () => void;
-  onSubmit: (input: string) => void;
 }
 
 const drawerBleeding = 56;
 
-const Root = styled('div')(({ theme }) => ({
+const Root = styled('div')(() => ({
   height: '100%',
   backgroundColor: grey[100],
 }));
 
-const StyledBox = styled('div')(({ theme }) => ({
+const StyledBox = styled(Box)(() => ({
   backgroundColor: '#fff',
 }));
 
@@ -35,15 +34,43 @@ const Puller = styled('div')(() => ({
 }));
 
 const AIInputDrawer = (props: Props) => {
-  const { window, open, onClose, onOpen, onSubmit } = props;
+  const { window, open, onClose, onOpen } = props;
   const container = window !== undefined ? () => window().document.body : undefined;
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    console.log('cargando...');
     e.preventDefault();
+    setLoading(true);
+    setError(null);
+console.log('cargando...');
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    onSubmit(formData.get('aiInput') as string);
-    onClose();
+    const inputValue = formData.get('aiInput') as string;
+console.log('inputValue--->:', inputValue);
+    try {
+      const response = await fetch('http://localhost:8000/api/ai-shopping', {  // Reemplaza con tu URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: inputValue }),
+      });
+
+      if (!response.ok) throw new Error('Error al procesar la solicitud');
+
+      const data = await response.json();
+      console.log('Respuesta de la API--->:', data);
+
+      onClose(); // Cierra el modal solo si la solicitud fue exitosa
+    } catch (err: any) {
+      setError(err.message);
+      console.error('Error en la API:', err);
+      
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -113,11 +140,13 @@ const AIInputDrawer = (props: Props) => {
             margin="normal"
             required
           />
+          {error && <Typography color="error">{error}</Typography>}
           <Box sx={{ mt: 3, mb: 2 }}>
             <Button 
               fullWidth 
               variant="contained" 
               type="submit"
+              disabled={loading}
               sx={{
                 background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
                 borderRadius: 2,
@@ -127,8 +156,8 @@ const AIInputDrawer = (props: Props) => {
                   boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
                 }
               }}
-            >
-              Procesar con IA
+            > 
+              {loading ? 'Procesando...' : 'Procesar con IA'}
             </Button>
           </Box>
         </StyledBox>
@@ -137,4 +166,4 @@ const AIInputDrawer = (props: Props) => {
   );
 };
 
-export default AIInputDrawer; 
+export default AIInputDrawer;
