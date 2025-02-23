@@ -44,11 +44,10 @@ const AIInputDrawer = (props: Props) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-console.log('cargando...');
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     const inputValue = formData.get('aiInput') as string;
-console.log('inputValue--->:', inputValue);
+    console.log('inputValue--->:', inputValue);
     try {
       const response = await fetch('http://localhost:8000/api/ai-shopping', {  // Reemplaza con tu URL
         method: 'POST',
