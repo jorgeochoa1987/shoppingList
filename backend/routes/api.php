@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{ShoppingListController, ItemController};
-
+use Illuminate\Support\Env;
 
 Route::middleware('auth:sanctum')->group(function () {
 
@@ -19,6 +19,7 @@ Route::prefix('shopping-lists/{shoppingList}')->group(function () {
 
 Route::post('ai-shopping', function (Request $request) {
 
+    $GEMINI_API_KEY = env('GEMINI_API_KEY');
     try{
 
         $content = json_decode($request->getContent());
@@ -33,7 +34,7 @@ Route::post('ai-shopping', function (Request $request) {
         $message = $content->message;
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCMu_s318HEi_gJVG1wBE1k6BSQUCTtn_E',
+        CURLOPT_URL => "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$GEMINI_API_KEY",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
